@@ -3,279 +3,291 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Labib | ETE Engineer | RUET</title>
+    <title>LABIB | ETE RUET</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap");
 
       body {
-        font-family: "Space Grotesk", sans-serif;
-        background-color: #050505;
-        color: #fafafa;
+        font-family: "Outfit", sans-serif;
+        background-color: #080808;
+        color: #ffffff;
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
       }
 
-      .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+      .huge-text {
+        font-size: 20vw;
+        line-height: 0.8;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.02);
+        user-select: none;
+        white-space: nowrap;
+        pointer-events: none;
       }
 
-      .slider-img {
-        filter: grayscale(40%) contrast(110%);
-        transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+      .glass-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
       }
 
-      .gradient-text {
-        background: linear-gradient(to right, #60a5fa, #34d399);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      .profile-frame {
+        position: relative;
+        border-radius: 2rem;
+        z-index: 10;
       }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
+      .profile-frame img {
+        border-radius: 2rem;
+        filter: grayscale(100%);
+        transition: 0.5s ease;
       }
-      ::-webkit-scrollbar-track {
-        background: #050505;
+
+      .profile-frame:hover img {
+        filter: grayscale(0%);
       }
-      ::-webkit-scrollbar-thumb {
-        background: #3b82f6;
+
+      .profile-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 2px solid #3b82f6;
+        border-radius: 2rem;
+        transform: translate(15px, 15px);
+        z-index: -1;
+      }
+
+      .skill-progress {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
         border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .skill-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #10b981);
+        width: 0%;
+        border-radius: 10px;
+      }
+
+      input,
+      textarea {
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #3b82f6 !important;
+        outline: none;
+        background: rgba(59, 130, 246, 0.05) !important;
       }
     </style>
   </head>
   <body>
     <div
-      id="cursor"
-      class="fixed w-4 h-4 bg-blue-500 rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
-    ></div>
+      class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 huge-text z-0"
+    >
+      LABIB LABIB
+    </div>
 
     <nav
-      class="fixed top-6 left-1/2 -translate-x-1/2 z-50 px-8 py-3 glass rounded-full flex items-center gap-8"
+      class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center"
     >
+      <div class="text-2xl font-black tracking-tighter">
+        L<span class="text-blue-500">.</span>
+      </div>
       <a
-        href="#home"
-        class="text-sm font-bold tracking-widest hover:text-blue-400 transition"
-        >LABIB</a
-      >
-      <div class="h-4 w-[1px] bg-gray-700"></div>
-      <a
-        href="#expertise"
-        class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition"
-        >Expertise</a
-      >
-      <a
-        href="#vision"
-        class="text-xs uppercase tracking-widest text-gray-400 hover:text-white transition"
-        >Vision</a
-      >
-      <a
-        href="mailto:contact@labib.me"
-        class="bg-blue-600 px-4 py-1.5 rounded-full text-xs font-bold hover:bg-blue-500 transition"
-        >HIRE ME</a
+        href="#contact"
+        class="glass-card px-6 py-2 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition duration-500"
+        >Let's Talk</a
       >
     </nav>
 
     <section
-      id="home"
-      class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20"
+      class="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-20"
     >
-      <div
-        class="absolute inset-0 overflow-hidden pointer-events-none opacity-20"
+      <div class="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+        <div class="order-2 md:order-1">
+          <h2
+            class="text-blue-500 font-bold tracking-[0.4em] uppercase text-sm mb-4 reveal"
+          >
+            Engineer & Visionary
+          </h2>
+          <h1 class="text-6xl md:text-8xl font-black mb-6 leading-none reveal">
+            I'm Labib<span class="text-blue-500">.</span>
+          </h1>
+          <p
+            class="text-gray-400 text-lg md:text-xl max-w-md leading-relaxed mb-8 reveal"
+          >
+            Electronics & Telecommunication Engineering student at <b>RUET</b>.
+            Merging digital signals with physical architecture.
+          </p>
+          <div class="flex gap-4 reveal">
+            <div class="h-[1px] w-12 bg-blue-500 mt-4"></div>
+            <p class="text-sm text-gray-500 italic">
+              Based in Rajshahi, BD<br />RUET ETE '26
+            </p>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 profile-frame reveal">
+          <img
+            src="labib.jpeg"
+            alt="Labib"
+            class="w-full aspect-square object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="relative z-10 py-24 px-6 max-w-4xl mx-auto">
+      <h3
+        class="text-xs font-bold tracking-[0.5em] uppercase text-blue-500 mb-12 text-center reveal"
       >
-        <div
-          class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600 rounded-full blur-[120px]"
-        ></div>
-        <div
-          class="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-600 rounded-full blur-[120px]"
-        ></div>
-      </div>
+        Technical Proficiency
+      </h3>
 
-      <div class="text-center z-10">
-        <p
-          class="hero-sub opacity-0 text-blue-400 tracking-[0.3em] uppercase text-sm mb-6"
-        >
-          RUET ETE Class of 2026
-        </p>
-        <h1
-          class="hero-title opacity-0 text-6xl md:text-9xl font-bold mb-8 leading-tight"
-        >
-          Engineering <br />
-          <span class="gradient-text">Signals.</span>
-        </h1>
-        <p
-          class="hero-para opacity-0 text-gray-400 max-w-xl mx-auto text-lg leading-relaxed"
-        >
-          Specializing in Telecommunication and Electronic Systems design. I
-          turn electromagnetic theories into digital realities.
-        </p>
-      </div>
-    </section>
+      <div class="space-y-10">
+        <div class="reveal">
+          <div class="flex justify-between mb-3">
+            <span class="font-bold tracking-widest text-sm uppercase"
+              >Telecommunication Systems</span
+            >
+            <span class="text-blue-500 font-bold">85%</span>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-bar" data-width="85%"></div>
+          </div>
+        </div>
 
-    <section class="py-20 bg-black/50 overflow-hidden">
-      <div class="slider-container flex gap-6 px-6">
-        <div
-          class="slide min-w-[300px] md:min-w-[500px] h-[350px] rounded-3xl overflow-hidden relative"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000"
-            class="slider-img w-full h-full object-cover"
-            alt="Circuitry"
-          />
-          <div class="absolute bottom-6 left-6">
-            <span class="glass px-4 py-2 rounded-lg text-sm"
-              >Embedded Systems</span
+        <div class="reveal">
+          <div class="flex justify-between mb-3">
+            <span class="font-bold tracking-widest text-sm uppercase"
+              >MATLAB & Simulation</span
             >
+            <span class="text-blue-500 font-bold">90%</span>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-bar" data-width="90%"></div>
           </div>
         </div>
-        <div
-          class="slide min-w-[300px] md:min-w-[500px] h-[350px] rounded-3xl overflow-hidden relative"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000"
-            class="slider-img w-full h-full object-cover"
-            alt="Coding"
-          />
-          <div class="absolute bottom-6 left-6">
-            <span class="glass px-4 py-2 rounded-lg text-sm"
-              >Cyber Connectivity</span
+
+        <div class="reveal">
+          <div class="flex justify-between mb-3">
+            <span class="font-bold tracking-widest text-sm uppercase"
+              >Circuit Design (VLSI)</span
             >
+            <span class="text-blue-500 font-bold">75%</span>
+          </div>
+          <div class="skill-progress">
+            <div class="skill-bar" data-width="75%"></div>
           </div>
         </div>
-        <div
-          class="slide min-w-[300px] md:min-w-[500px] h-[350px] rounded-3xl overflow-hidden relative"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=1000"
-            class="slider-img w-full h-full object-cover"
-            alt="Telecom"
-          />
-          <div class="absolute bottom-6 left-6">
-            <span class="glass px-4 py-2 rounded-lg text-sm"
-              >Signal Processing</span
+
+        <div class="reveal">
+          <div class="flex justify-between mb-3">
+            <span class="font-bold tracking-widest text-sm uppercase"
+              >Embedded Systems (C/C++)</span
             >
+            <span class="text-blue-500 font-bold">80%</span>
           </div>
-        </div>
-        <div
-          class="slide min-w-[300px] md:min-w-[500px] h-[350px] rounded-3xl overflow-hidden relative"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000"
-            class="slider-img w-full h-full object-cover"
-            alt="Hardware"
-          />
-          <div class="absolute bottom-6 left-6">
-            <span class="glass px-4 py-2 rounded-lg text-sm">RF Design</span>
+          <div class="skill-progress">
+            <div class="skill-bar" data-width="80%"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="expertise" class="py-32 px-6 max-w-7xl mx-auto">
-      <h2 class="text-4xl font-bold mb-16">
-        Core <span class="text-blue-500">Focus.</span>
-      </h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div
-          class="expertise-card glass p-10 rounded-3xl hover:bg-white/5 transition-all group"
-        >
-          <div
-            class="w-12 h-12 bg-blue-500/20 rounded-xl mb-6 flex items-center justify-center text-blue-400 font-bold group-hover:scale-110 transition"
-          >
-            01
+    <section id="contact" class="relative z-10 py-32 px-6">
+      <div
+        class="max-w-3xl mx-auto glass-card p-8 md:p-16 rounded-[2rem] reveal"
+      >
+        <h3 class="text-4xl font-black mb-2">
+          Connect with Labib<span class="text-blue-500">.</span>
+        </h3>
+        <p class="text-gray-400 mb-10">
+          Have a project in mind or just want to discuss the future of ETE?
+        </p>
+
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full px-6 py-4 rounded-xl"
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="w-full px-6 py-4 rounded-xl"
+            />
           </div>
-          <h3 class="text-2xl font-bold mb-4">Telecom Engineering</h3>
-          <p class="text-gray-400">
-            Mastering 5G protocols, satellite communications, and microwave
-            engineering at RUET.
-          </p>
-        </div>
-        <div
-          class="expertise-card glass p-10 rounded-3xl hover:bg-white/5 transition-all group"
-        >
-          <div
-            class="w-12 h-12 bg-emerald-500/20 rounded-xl mb-6 flex items-center justify-center text-emerald-400 font-bold group-hover:scale-110 transition"
+          <textarea
+            placeholder="Your Message"
+            rows="5"
+            class="w-full px-6 py-4 rounded-xl"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all transform active:scale-95"
           >
-            02
-          </div>
-          <h3 class="text-2xl font-bold mb-4">Electronics Design</h3>
-          <p class="text-gray-400">
-            Developing efficient VLSI circuits and micro-controller based
-            automation systems.
-          </p>
-        </div>
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
 
-    <footer id="vision" class="py-20 text-center glass border-none mt-20">
-      <div class="max-w-2xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8">
-          Let's build the future of communication.
-        </h2>
-        <div class="flex justify-center gap-6">
-          <a
-            href="#"
-            class="text-gray-400 hover:text-white underline decoration-blue-500"
-            >LinkedIn</a
-          >
-          <a
-            href="#"
-            class="text-gray-400 hover:text-white underline decoration-blue-500"
-            >GitHub</a
-          >
-          <a
-            href="#"
-            class="text-gray-400 hover:text-white underline decoration-blue-500"
-            >ResearchGate</a
-          >
-        </div>
-        <p class="mt-12 text-gray-600 text-sm italic">
-          Designed for 2026 excellence.
-        </p>
-      </div>
+    <footer
+      class="relative z-10 py-12 text-center text-gray-600 text-xs tracking-widest uppercase"
+    >
+      © 2026 Labib | ETE RUET | Bangladesh
     </footer>
 
     <script>
-      // GSAP Registration
       gsap.registerPlugin(ScrollTrigger);
 
-      // Custom Cursor Logic
-      const cursor = document.getElementById("cursor");
-      document.addEventListener("mousemove", (e) => {
-        gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
-      });
-
-      // Hero Animations
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-      tl.to(".hero-sub", { opacity: 1, y: -20, duration: 1 })
-        .to(".hero-title", { opacity: 1, y: -20, duration: 1 }, "-=0.7")
-        .to(".hero-para", { opacity: 1, y: -20, duration: 1 }, "-=0.7");
-
-      // Slider Animation (Auto-scroll & ScrollTrigger)
-      gsap.to(".slider-container", {
-        x: "-50%",
+      // Watermark Movement
+      gsap.to(".huge-text", {
+        xPercent: -15,
         scrollTrigger: {
-          trigger: ".slider-container",
-          start: "top bottom",
-          end: "bottom top",
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
           scrub: 1,
         },
       });
 
-      // Expertise Cards Reveal
-      gsap.from(".expertise-card", {
-        scrollTrigger: {
-          trigger: "#expertise",
-          start: "top 80%",
-        },
-        y: 50,
+      // Entrance Stagger
+      gsap.from(".reveal", {
+        y: 30,
         opacity: 0,
-        stagger: 0.2,
         duration: 1,
+        stagger: 0.15,
         ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".reveal",
+          start: "top 90%",
+        },
+      });
+
+      // Skill Bar Animation
+      gsap.utils.toArray(".skill-bar").forEach((bar) => {
+        gsap.to(bar, {
+          width: bar.getAttribute("data-width"),
+          duration: 1.5,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: bar,
+            start: "top 90%",
+          },
+        });
       });
     </script>
   </body>
